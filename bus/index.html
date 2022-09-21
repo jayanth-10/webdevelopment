@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS Files -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="bootstrap/css/font-awesome-5.8.1.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap/css/mdb.css">
+    <link rel="stylesheet" href="bootstrap/css/style.css">
+    <title>NBKR</title>
+</head>
+
+<body>
+
+    <!-- Main Navbar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+            <a href="index.html" class="navbar-brand text-warning">
+                <i class="fa fa-snowflake"></i> NBKRIST
+            </a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#ui-navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="ui-navbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fa fa-chart-bar text-muted"></i> NBKR TRANSPORTATION MANAGEMENT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="busdetails.php">
+                            <i class="fa fa-list text-muted"></i> bus details</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="students.php">
+                            <i class="fa fa-users text-muted"></i> students</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" data-toggle="dropdown">
+                            <i class="fa fa-sign-in-alt text-muted"></i> jayanth</a>
+                        <div class="dropdown-menu p-2">
+                            
+                            <a href="settings.html" class="dropdown-item">
+                                <i class="fa fa-cogs"></i> Settings</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="main.php">
+                            <i class="fa fa-sign-out-alt text-muted"></i> LogOut</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Section -->
+    <section class="p-2 bg-teal text-white">
+        <div class="container">
+            <div class="row">
+                <h1 class="animated flipInY">
+                    <i class="fa fa-chart-bar"></i> ADMIN PANEL</h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Buttons Section -->
+    <section class="p-3 bg-light">
+        <div class="container">
+            <div class="row animated flipInX delay-1s">
+                <div class="col-md-4">
+                    <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#bus-modal">
+                       <i class="fa fa-plus-circle"></i> Add Bus Details
+                    </button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-warning btn-block" data-toggle="modal" data-target="#students-modal">
+                        <i class="fa fa-plus-circle"></i> Add students
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- bus Modal -->
+    <div class="modal" id="bus-modal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content animated jackInTheBox">
+                <div class="modal-header bg-primary text-white">
+                    <h3>ADD BUS DETAILS</h3>
+                    <button class="close" data-dismiss="modal">
+                        <i class="fa fa-times-circle"></i>
+                    </button>
+                </div>
+                <div class="modal-body bg-light">
+                    <form action="bus.php" method="post">
+                        <div class="form-group">
+                            <label class="form-check-label">NUM-PLATE</label>
+                            <input type="text" class="form-control" placeholder="registration" name="num" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-check-label">BUS-NUM</label>
+                            <input type="text" class="form-control" placeholder="busnum" name="busnum" required>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-check-label">ROUTES</label>
+                            <input type="text" class="form-control" placeholder="routes" name="routes" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-check-label">NO.OF students</label>
+                            <input type="text" class="form-control" placeholder="no.of students" name="stu">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-check-label">NO.OF FACULTY</label>
+                            <input type="text" class="form-control" placeholder="no.of faculty" name="faculty">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-check-label">Sub Route</label>
+                            <input type="text" class="form-control" placeholder="Route" name="sub">
+                        </div>
+
+                        <div>
+                            <input type="submit" class="btn btn-primary" value="Add details">
+                            <a href="#" data-dismiss="modal" class="btn btn-dark">close</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- students Modal -->
+    <div class="modal" id="students-modal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content animated flipInY">
+                <div class="modal-header bg-warning text-white">
+                    <h3>Add student</h3>
+                    <button class="close" data-dismiss="modal">
+                        <i class="fa fa-times-circle"></i>
+                    </button>
+                </div>
+                <div class="modal-body bg-light">
+                    <form action="addstudent.php" method="post">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="roll no" name="roll">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="NAME" name="name">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="branch" name="branch">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="EMAIL" name="mail">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="phone " name="phone">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="place" name="place">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="amount" name="amount">
+                        </div>
+                        <div>
+                            <input type="submit" class="btn btn-warning" value="Add student">
+                            <a href="#" data-dismiss="modal" class="btn btn-dark">close</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div <!-- Main Content Section -->
+    <section class="p-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="card animated zoomIn delay-2s">
+                        <div class="card-header bg-secondary text-white">
+
+                            <div class="col-md-3 animated slideInUp delay-3s">
+                                <div class="card">
+                                    <div class="card-header bg-primary text-white">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <i class="fa fa-list fa-4x"></i>
+                                            </div>
+                                            <div class="col">
+                                                <h3 class="display-3">08</h3>
+                                                <h6>BUS DETAILS </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <h5>
+                                            <a href="busdetails.php" class="text-primary">
+                                    View Details <i class="fa fa-arrow-alt-circle-right"></i>
+                                </a>
+                                        </h5>
+                                    </div>
+                                </div>
+
+                                <div class="card mt-4">
+                                    <div class="card-header bg-warning text-white">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <i class="fa fa-users fa-4x"></i>
+                                            </div>
+                                            <div class="col">
+                                                <h3 class="display-3">08</h3>
+                                                <h6>students</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <h5>
+                                            <a href="students.php" class="text-warning">
+                                    View Details <i class="fa fa-arrow-alt-circle-right"></i>
+                                </a>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    </section>
+
+    <!-- Main Footer -->
+    <footer class="p-3 bg-dark text-white text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3>NBKR Bus Transportation System | Made with &#10084;&#65039; by BATCH2</h3>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap  JS Files -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/popper.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="bootstrap/js/mdb.js"></script>
+    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('editor1');
+    </script>
+</body>
+
+</html>

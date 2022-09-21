@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS Files -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="bootstrap/css/font-awesome-5.8.1.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap/css/mdb.css">
+    <link rel="stylesheet" href="bootstrap/css/style.css">
+    <title>NBKR</title>
+</head>
+<body>
+
+<!-- Main Navbar -->
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container">
+        <a href="main.php" class="navbar-brand text-warning">
+            <i class="fa fa-university"></i> NBKRIST 
+        </a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#ui-navbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="ui-navbar">
+
+        </div>
+    </div>
+</nav>
+
+<!-- Dashboard Section -->
+<section class="p-2 bg-teal text-white">
+    <div class="container">
+        <div class="row animated flipInY">
+            <h1>
+              <center>  <i class="fa fa-snowflake"></i> NBKR TRANSPORTATION MANAGEMENT    <i class="fa fa-snowflake"></i></center>
+            </h1>
+        </div>
+    </div>
+</section>
+
+<!-- Login Section -->
+<section class="p-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 m-auto">
+                <div class="card animated zoomIn delay-1s">
+                    <div class="card-header bg-teal text-white text-center">
+                        <h3>Admin Login</h3>
+                    </div>
+                    <div class="card-body bg-light">
+                        <form action="admlogin.php" method="post">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="User Name" name="user" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Password" name = "pass" required>
+                            </div>
+                            <div class="card-footer bg-light">
+                            <button type='submit' name='log' class="btn btn-teal btn-block" >Login</button>
+                             </div>
+                            </form> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Footer -->
+<footer class="p-3 bg-dark text-white text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+              <center><h3>NBKR Bus Transportation System | Made with &#10084;&#65039; by BATCH2</h3></center>  
+              
+                                </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Bootstrap  JS Files -->
+<script src="bootstrap/js/jquery.js"></script>
+<script src="bootstrap/js/popper.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<script src="bootstrap/js/mdb.js"></script>
+<script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'editor1' );
+</script>
+</body>
+</html>
+<?php
+if(isset($_POST['log'])){
+    $user  = $_POST['user'];
+    $pass = $_POST['pass'];
+    $con = mysqli_connect('localhost','root','','nbkr');
+    $query = "SELECT * FROM admin WHERE user ='$user' AND Password='$pass';";
+    $result = mysqli_query($con,$query);
+    $row = mysqli_num_rows($result);
+    if(isset($result)){
+        header('Location: index.html');
+    }
+    else{
+        echo 'Wrong details';
+    }
+       
+}
+
+?>
